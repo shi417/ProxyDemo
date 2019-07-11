@@ -21,10 +21,10 @@ public class UserServiceImpl implements IUserService {
     public static void main(String[] args) {
         UserParam user = new UserParam();
         IUserService userService = new UserServiceImpl();
-        //静态代理
+        //static proxy
         IUserService userProxy = new UserProxy(userService);
         userProxy.addUser(user);
-        //动态代理
+        //jdk proxy
         ProxyFactory proxyFactory = new ProxyFactory(userService);
         IUserService proxy = (IUserService)proxyFactory.getProxyInstance();
         proxy.addUser(user);
